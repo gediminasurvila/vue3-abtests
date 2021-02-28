@@ -17,8 +17,8 @@ export default {
     }
     this.intervalId = setInterval(() => {
       if (window.google_optimize !== undefined) {
-        const variant = window.google_optimize.get("UNYDqXM2RvKWONOfFM89bA");
-        console.log(variant);
+        const variant = window.google_optimize.get("vVqcR17oSl2Kkr5ghRCJ5A");
+        console.log("variant", variant);
         clearInterval(this.intervalId);
       }
     }, 100);
