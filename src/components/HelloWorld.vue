@@ -19,6 +19,12 @@ export default {
       if (window.google_optimize !== undefined) {
         const variant = window.google_optimize.get("vVqcR17oSl2Kkr5ghRCJ5A");
         console.log("variant", variant);
+        if (variant === 1) {
+          this.buttonText = "Click me";
+        }
+        if (variant === 2) {
+          this.buttonText = "Click here";
+        }
         clearInterval(this.intervalId);
       }
     }, 100);
