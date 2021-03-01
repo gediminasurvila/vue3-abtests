@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <button>{{ buttonText }}</button>
+    <button v-if="buttonText">{{ buttonText }}</button>
   </div>
 </template>
 
@@ -19,20 +19,30 @@ export default {
       if (window.google_optimize !== undefined) {
         const variant = window.google_optimize.get("vVqcR17oSl2Kkr5ghRCJ5A");
         console.log("variant", variant);
-        if (variant === 1) {
-          this.buttonText = "Click me";
-        }
-        if (variant === 2) {
-          this.buttonText = "Click here";
-        }
+        this.setButtonText(variant);
         clearInterval(this.intervalId);
       }
     }, 100);
   },
   data() {
     return {
-      buttonText: "Click Me",
+      buttonText: ""
     };
+  },
+  methods: {
+    setButtonText(variant) {
+      if (!variant) {
+        this.buttonText = "Original";
+      }
+
+      if (variant === 1) {
+        this.buttonText = "Click me";
+      }
+
+      if (variant === 2) {
+        this.buttonText = "Click here";
+      }
+    },
   },
 };
 </script>
