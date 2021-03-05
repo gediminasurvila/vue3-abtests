@@ -1,15 +1,23 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <button v-if="buttonText">{{ buttonText }}</button>
+    <a-button v-if="variant === 1" :buttonText="buttonText" />
+    <b-button v-if="variant === 2" :buttonText="buttonText" />
   </div>
 </template>
 
 <script>
+import AButton from "../components/abtests/AButton";
+import BButton from "../components/abtests/BButton";
+
 export default {
   name: "HelloWorld",
   props: {
     msg: String,
+  },
+  components: {
+    AButton,
+    BButton,
   },
   async created() {
     if (window.dataLayer) {
@@ -19,30 +27,34 @@ export default {
       if (window.google_optimize !== undefined) {
         const variant = window.google_optimize.get("vVqcR17oSl2Kkr5ghRCJ5A");
         console.log("variant", variant);
-        this.setButtonText(variant);
+        this.setVariant(variant);
         clearInterval(this.intervalId);
       }
     }, 100);
   },
   data() {
     return {
-      buttonText: ""
+      variant: null,
     };
   },
-  methods: {
-    setButtonText(variant) {
-      if (!variant) {
-        this.buttonText = "Original";
-      }
+  computed: {
+    buttonText() {
+      switch (this.variant) {
+        case 1:
+          return "Click me";
 
-      if (variant === 1) {
-        this.buttonText = "Click me";
-      }
+        case 2:
+          return "Click here";
 
-      if (variant === 2) {
-        this.buttonText = "Click here";
+        default:
+          return "Original"
       }
     },
+  },
+  methods: {
+    setVariant(variant) {
+      this.variant = variant;
+    }
   },
 };
 </script>
