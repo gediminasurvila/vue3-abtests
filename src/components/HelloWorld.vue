@@ -53,6 +53,7 @@ export default {
   },
   methods: {
     setVariant(variant) {
+      console.log("Setting variant", variant);
       this.variant = variant;
     }
   },
