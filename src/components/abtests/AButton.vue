@@ -1,5 +1,5 @@
 <template>
-  <button class="btn-red">{{ buttonText }}</button>
+  <button class="btn-red gtm-abtest">{{ buttonText }}</button>
 </template>
 
 <script>
