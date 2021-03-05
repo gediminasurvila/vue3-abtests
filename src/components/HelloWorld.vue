@@ -1,8 +1,9 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <a-button v-if="variant === 1" :buttonText="buttonText" />
-    <b-button v-if="variant === 2" :buttonText="buttonText" />
+    <a-button v-if="variant == 1" :buttonText="buttonText" />
+    <b-button v-if="variant == 2" :buttonText="buttonText" />
+    <b-button v-if="variant == undefined" buttonText="Undefined" />
   </div>
 </template>
 
