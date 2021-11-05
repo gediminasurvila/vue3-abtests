@@ -1,8 +1,8 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <a-button v-if="variant === '1'" :buttonText="buttonText" />
-    <b-button v-if="variant === '2'" :buttonText="buttonText" />
+    <a-button v-if="variant === '0'" :buttonText="buttonText" />
+    <b-button v-if="variant === '1'" :buttonText="buttonText" />
   </div>
 </template>
 
@@ -40,14 +40,11 @@ export default {
   computed: {
     buttonText() {
       switch (this.variant) {
-        case '1':
+        case '0':
           return "Click me";
 
-        case '2':
+        case '1':
           return "Click here";
-
-        default:
-          return "Original"
       }
     },
   },
