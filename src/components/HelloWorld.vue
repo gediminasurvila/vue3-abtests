@@ -25,7 +25,7 @@ export default {
     }
     this.intervalId = setInterval(() => {
       if (window.google_optimize !== undefined) {
-        const variant = window.google_optimize.get("vVqcR17oSl2Kkr5ghRCJ5A");
+        const variant = window.google_optimize.get("xpkYuNrOSWKfsXLo6OB4cw");
         console.log("variant", variant);
         this.setVariant(variant);
         clearInterval(this.intervalId);
