@@ -45,6 +45,8 @@ export default {
 
         case '1':
           return "Click here";
+        default:
+          return "Click me";
       }
     },
   },
